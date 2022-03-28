@@ -6,7 +6,7 @@
     <h3 class="mt-4">Adornos</h3>
     <Adornos/>
   </div>
-  <div class="container container2">
+  <div class="container container2 mb-5">
     <h3 class="mt-4">Confirma tu orden</h3>
     <main>
       <div class="row g-5">
@@ -15,6 +15,7 @@
       </div>
     </main>
   </div>
+  <Footer/>
 </template>
 
 <script>
@@ -23,6 +24,8 @@ import Sabores from '@/components/Sabores.vue'
 import Adornos from '@/components/Adornos.vue'
 import Contacto from '@/components/Contacto.vue'
 import Carrito from '@/components/Carrito.vue'
+import Footer from '@/components/Footer.vue'
+
 
 export default {
   data() {
@@ -34,7 +37,8 @@ export default {
     Sabores,
     Adornos,
     Contacto,
-    Carrito
+    Carrito,
+    Footer
   }
 }
 </script>
