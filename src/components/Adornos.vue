@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex justify-content-between mt-3 border pt-3 pb-3 ps-3" v-for="adorno in adornos" :key="adorno.id">
+  <div class="d-flex justify-content-between mt-3 border pt-3 pb-3 ps-3" v-for="adorno in $store.state.adornos" :key="adorno.id">
     <img v-bind:src="adorno.img" alt="notFound" class="img">
     <span>{{adorno.nombre}}</span>
     <span class="pe-3">${{adorno.precio}}</span>
@@ -9,16 +9,6 @@
 
 <script>
 export default {
-  data() {
-    return {
-      adornos: [
-        {id: 1, img: require('@/assets/Adornos/Chispas.jpg'), nombre: 'Chispas', precio: 150},
-        {id: 2, img: require('@/assets/Adornos/crema.jpg'), nombre: 'Crema', precio: 100},
-        {id: 3, img: require('@/assets/Adornos/CubiertaFresa.jpg'), nombre: 'Cubierta', precio: 200},
-        {id: 4, img: require('@/assets/Adornos/Glaseado.jpg'), nombre: 'Glaseado', precio: 110},
-      ],
-    }
-  }
 }
 </script>
 
