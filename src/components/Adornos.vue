@@ -3,7 +3,7 @@
     <img v-bind:src="adorno.img" alt="notFound" class="img">
     <span>{{adorno.nombre}}</span>
     <span class="pe-3">${{adorno.precio}}</span>
-    <button type="button" class="btn btn-primary me-3"><img src="@/assets/cart.svg" alt=""></button>
+    <button type="button" id="buttonAdorno" class="btn btn-primary me-3" @click="$store.commit('agregarItem',adorno)"><img src="@/assets/cart.svg" alt=""></button>
   </div>
 </template>
 

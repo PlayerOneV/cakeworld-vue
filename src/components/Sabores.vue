@@ -1,9 +1,9 @@
 <template>
   <div class="d-flex justify-content-between mt-3 border pt-3 pb-3 ps-3" v-for="sabor in $store.state.sabores" :key="sabor.id">
     <img v-bind:src="sabor.img" alt="notFound" class="img">
-    <span :id="sabor.id">{{sabor.nombre}}</span>
-    <span class="pe-3">${{sabor.precio}}</span>
-    <button type="button" class="btn btn-primary me-3" @click="$store.commit('agregarItem')"><img src="@/assets/cart.svg" alt=""></button>
+    <span :id="'saborName' + sabor.id">{{sabor.nombre}}</span>
+    <span :id="'saborPrice' + sabor.id" class="pe-3">${{sabor.precio}}</span>
+    <button type="button" class="btn btn-primary me-3" @click="$store.commit('agregarItem',sabor)"><img src="@/assets/cart.svg" alt=""></button>
   </div>
 </template>
 
