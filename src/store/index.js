@@ -19,17 +19,25 @@ export default createStore({
     orden: [],
     nombre: "",
     apellido: "",
-    telefono: 9988442299,
+    telefono: null,
     email: "",
     direccion: "",
+    instrucciones:"",
     total: 0,
   },
   getters: {
   },
   mutations: {
     agregarItem(state, articulo) {
-      state.carrito.push(articulo) //Agregamos el articulo al carrito
-
+      state.carrito.push(
+        {
+          id:articulo.id,
+          nombre:articulo.nombre,
+          precio:articulo.precio,
+          stock:articulo.stock-1
+        }
+      ) //Agregamos el articulo al carrito
+      console.log(state.carrito)
       //Declaramos una variable para guardar la cantidad de articulos que tiene el carrito y el total de la compra
       let i = state.carrito.length
       let total = 0
@@ -51,19 +59,14 @@ export default createStore({
           apellido: state.apellido,
           email: state.email,
           telefono: state.telefono,
-          direccion: state.direccion
-        }
-
-      )
-      
-      state.orden.push(
-        {
-          id:i,
-          pedido:state.carrito,
+          direccion: state.direccion,
+          instrucciones: state.instrucciones,
+          ingredientes: state.carrito,
           total: state.total
         }
       )
-      console.log(state.orden)
+
+      console.log(state.orden[0].pedido[0].nombre)
     }
   },
   actions: {

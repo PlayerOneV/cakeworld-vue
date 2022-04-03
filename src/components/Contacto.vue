@@ -45,36 +45,11 @@
               </div>
             </div>
 
-            <div class="col-md-5">
-              <label for="country" class="form-label">Pais</label>
-              <select class="form-select" id="country" required="">
-                <option value="">Escoje...</option>
-                <option>México</option>
-                <option>Honduras</option>
-              </select>
+            <div class="col-12">
+              <label for="address" class="form-label">Dirección</label>
+              <textarea type="text" class="form-control" id="address" placeholder="Escribe aqui las instrucciones..." required="" v-model="$store.state.instrucciones"> </textarea>
               <div class="invalid-feedback">
-                Por favor selecciona un pais.
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <label for="state" class="form-label">Estado</label>
-              <select class="form-select" id="state" required="">
-                <option value="">Escoje...</option>
-                <option>Veracruz</option>
-                <option>Queretaro</option>
-                <option>Quintana Roo</option>
-              </select>
-              <div class="invalid-feedback">
-                Por favor selecciona un estado.
-              </div>
-            </div>
-
-            <div class="col-md-3">
-              <label for="zip" class="form-label">C.P.</label>
-              <input type="text" class="form-control" id="zip" placeholder="" required="">
-              <div class="invalid-feedback">
-                C.P requerido.
+                Por favor introduce tus instrucciones.
               </div>
             </div>
           </div>

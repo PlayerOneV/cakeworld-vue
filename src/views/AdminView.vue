@@ -9,16 +9,21 @@
           <th scope="col">Email</th>
           <th scope="col">Telefono</th>
           <th scope="col">Dirección</th>
+          <th scope="col">Instrucciones</th>
+          <th scope="col">Ingredientes</th>
+
         </tr>
       </thead>
       <tbody v-for="info in $store.state.address" :key="info.id">
         <tr>
-          <th scope="row">{{info.id}}</th>
-          <td>{{info.nombre}}</td>
-          <td>{{info.apellido}}</td>
-          <td>{{info.email}}</td>
-          <td>{{info.telefono}}</td>
-          <td>{{info.direccion}}</td>
+          <th scope="row" class="pt-4">{{info.id}}</th>
+          <td class="pt-4">{{info.nombre}}</td>
+          <td class="pt-4">{{info.apellido}}</td>
+          <td class="pt-4">{{info.email}}</td>
+          <td class="pt-4">{{info.telefono}}</td>
+          <td class="pt-4">{{info.direccion}}</td>
+          <td class="pt-4">{{info.instrucciones}}</td>
+          <td ><h6 v-for="a in info.ingredientes" :key="a.id">{{a.nombre}}</h6></td>
         </tr>
       </tbody>
     </table>
