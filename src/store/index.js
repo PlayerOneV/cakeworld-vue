@@ -22,7 +22,7 @@ export default createStore({
     telefono: null,
     email: "",
     direccion: "",
-    instrucciones: "",
+    instrucciones: [],
     total: 0,
   },
   getters: {
@@ -63,6 +63,9 @@ export default createStore({
     },
     agregarOrden(state) {
       let i = state.address.length + 1
+      state.orden.push(state.carrito)
+      let carroOld = state.carrito
+      state.carrito = [] 
       state.address.push(
         {
           id: i,
@@ -72,12 +75,12 @@ export default createStore({
           telefono: state.telefono,
           direccion: state.direccion,
           instrucciones: state.instrucciones,
-          ingredientes: state.carrito,
+          ingredientes: carroOld,
           total: state.total
         }
       )
-
-      console.log(state.address)
+      state.total = 0
+      alert("Compra realizada correctamente")
     }
   },
   actions: {
