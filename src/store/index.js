@@ -22,7 +22,7 @@ export default createStore({
     telefono: null,
     email: "",
     direccion: "",
-    instrucciones:"",
+    instrucciones: "",
     total: 0,
   },
   getters: {
@@ -31,13 +31,23 @@ export default createStore({
     agregarItem(state, articulo) {
       state.carrito.push(
         {
-          id:articulo.id,
-          nombre:articulo.nombre,
-          precio:articulo.precio,
-          stock:articulo.stock-1
+          id: articulo.id,
+          nombre: articulo.nombre,
+          precio: articulo.precio,
         }
-      ) //Agregamos el articulo al carrito
-      console.log(state.carrito)
+      )//Agregamos el articulo al carrito
+
+      for (let i = 0; i < state.sabores.length; i++) {
+        const sabor = state.sabores[i].nombre;
+        const adorno = state.adornos[i].nombre;
+
+        if (articulo.nombre == sabor) {
+          state.sabores[i].stock = state.sabores[i].stock - 1
+        } else if (articulo.nombre == adorno) {
+          state.adornos[i].stock = state.adornos[i].stock - 1
+        }
+      }
+
       //Declaramos una variable para guardar la cantidad de articulos que tiene el carrito y el total de la compra
       let i = state.carrito.length
       let total = 0
@@ -46,9 +56,10 @@ export default createStore({
       for (let x = 0; x < i; x++) {
         total += state.carrito[x].precio
       }
-
       //Asignamos el nuevo valor al state
       state.total = total
+
+      console.log(state.carrito)
     },
     agregarOrden(state) {
       let i = state.address.length + 1
@@ -66,7 +77,7 @@ export default createStore({
         }
       )
 
-      console.log(state.orden[0].pedido[0].nombre)
+      console.log(state.address)
     }
   },
   actions: {
